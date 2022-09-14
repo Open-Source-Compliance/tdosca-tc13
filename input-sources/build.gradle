@@ -1,0 +1,43 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+// uncomment to apply ide specific plugin
+//apply plugin: 'idea'
+//apply plugin: 'eclipse'
+
+mainClassName = "tdosca.tc13.Main"
+
+run.args = ["Reader"]
+
+// uncomment to read runArgs from project properties
+//run.args = [project.runArgs]
+
+// uncomment to change the archive's name
+distributions.main.distributionBaseName = 'tdosca-tc13-plainhw'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.13.3'
+  implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.13.3'
+  
+  implementation "joda-time:joda-time:2.2"
+  testImplementation 'junit:junit:4.12'
+}
+
+task copyLicense {
+    outputs.file new File("${buildDir}/share/doc/tdosca-tc13/LICENSE")
+    doLast {
+        mkdir "${buildDir}/share/doc/tdosca-tc13"
+        copy {
+            from "LICENSE"
+            into "${buildDir}/share/doc/tdosca-tc13/"
+        }
+    }
+}
+
+applicationDistribution.from(copyLicense) {
+    into "share/doc/tdosca-tc13"
+}
