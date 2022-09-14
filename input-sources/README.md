@@ -42,8 +42,8 @@ To compile and install the program itself, do this:
   - ``gradle run`` or  ``gradlew run``
   - or
     - ``gradle build``
-    - ``unzip build/distributions/tdosca-tc11-plainhw.zip`` and
-    - ``tdosca-tc11-plainhw/bin/tdosca-tc11``
+    - ``unzip build/distributions/tdosca-tc13-plainhw.zip`` and
+    - ``tdosca-tc13-plainhw/bin/tdosca-tc13``
 
 ## 6. Licensing <a id="lic"></a>
 
